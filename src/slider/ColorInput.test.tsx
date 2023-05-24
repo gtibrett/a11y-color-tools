@@ -1,28 +1,39 @@
 import {act, cleanup, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {UserEvent} from '@testing-library/user-event/setup/setup';
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
+import {Provider} from 'react-redux';
 import {testForAccessibility} from '../jest/testForAccessibility';
+import store from '../redux/store';
 import ColorInput from './ColorInput';
 
-jest.mock('react-redux');
+const ReduxContainer = ({children}: PropsWithChildren) => {
+	return <Provider store={store}>{children}</Provider>;
+};
 
 describe('ColorInput.tsx', () => {
 	let user: UserEvent | undefined;
 	
 	afterEach(cleanup);
-	
 	beforeEach(() => {
 		user = userEvent.setup();
 	});
 	
 	test('Render', async () => {
-		render(<ColorInput variant="foreground"/>);
+		render(
+			<ReduxContainer>
+				<ColorInput variant="foreground"/>
+			</ReduxContainer>
+		);
 		expect(screen.getByLabelText(/foreground Color/i)).toBeInTheDocument();
 	});
 	
 	test('Interact', async () => {
-		const {container} = render(<ColorInput variant="foreground"/>);
+		const {container} = render(
+			<ReduxContainer>
+				<ColorInput variant="foreground"/>
+			</ReduxContainer>
+		);
 		
 		const input = screen.getByRole('textbox');
 		expect(input).toBeInTheDocument();
@@ -30,11 +41,11 @@ describe('ColorInput.tsx', () => {
 		await act(async () => {
 			if (user) {
 				input.focus();
-				await user.keyboard('[backspace][backspace][backspace][backspace]');
+				await user.keyboard('[backspace][backspace][backspace][backspace][backspace][backspace][backspace]'); // delete all selected
 				await user.keyboard('#123'); // allowed keys
 				await user.keyboard('xyz!@'); // ignored keys
 				await user.keyboard('{Alt>}a{/Alt}'); // ignored hotkey
-				
+				await user.keyboard('{Enter}'); // submit form
 			} else {
 				throw new Error('UserEvent not initialized');
 			}
@@ -43,5 +54,9 @@ describe('ColorInput.tsx', () => {
 		expect(container.querySelector('input')?.value).toBe('#123');
 	});
 	
-	testForAccessibility(<ColorInput variant="foreground"/>);
+	testForAccessibility(
+		<ReduxContainer>
+			<ColorInput variant="foreground"/>
+		</ReduxContainer>
+	);
 });
