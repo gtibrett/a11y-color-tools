@@ -1,6 +1,6 @@
 import {Button, capitalize, Grid, TextField, Typography} from '@mui/material';
 import {visuallyHidden} from '@mui/utils';
-import {ChangeEvent, EventHandler, KeyboardEventHandler, MouseEventHandler, useEffect, useState} from 'react';
+import {ChangeEvent, EventHandler, KeyboardEventHandler, useEffect, useState} from 'react';
 import {useSetByVariant} from '../redux/colorsSlice';
 import {useColorVariant} from '../redux/store';
 import {ColorVariant} from '../types';
@@ -37,7 +37,7 @@ export default function ColorInput({variant}: ColorInputProps) {
 	const handleSave: EventHandler<any> = (ev: Event) => {
 		ev.preventDefault();
 		setByVariant(variant, value);
-	}
+	};
 	
 	return (
 		<form onSubmit={handleSave}>
