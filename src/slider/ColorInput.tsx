@@ -1,6 +1,6 @@
 import {Button, capitalize, Grid, TextField, Typography} from '@mui/material';
 import {visuallyHidden} from '@mui/utils';
-import {ChangeEvent, KeyboardEventHandler, MouseEventHandler, useEffect, useState} from 'react';
+import {ChangeEvent, EventHandler, KeyboardEventHandler, MouseEventHandler, useEffect, useState} from 'react';
 import {useSetByVariant} from '../redux/colorsSlice';
 import {useColorVariant} from '../redux/store';
 import {ColorVariant} from '../types';
@@ -22,7 +22,7 @@ const handleKeydown: KeyboardEventHandler<HTMLDivElement> = (ev) => {
 };
 
 export default function ColorInput({variant}: ColorInputProps) {
-	const color             = useColorVariant(variant) || '#000';
+	const color             = useColorVariant(variant);
 	const [value, setValue] = useState(color);
 	const setByVariant      = useSetByVariant();
 	
@@ -34,29 +34,34 @@ export default function ColorInput({variant}: ColorInputProps) {
 		setValue(ev.target.value);
 	};
 	
-	const handleSave: MouseEventHandler<HTMLButtonElement> = () => setByVariant(variant, value);
+	const handleSave: EventHandler<any> = (ev: Event) => {
+		ev.preventDefault();
+		setByVariant(variant, value);
+	}
 	
 	return (
-		<Grid container spacing={1}>
-			<Grid item>
-				<TextField
-					label={`${capitalize(variant)} Color`}
-					variant="outlined"
-					size="small"
-					color="secondary"
-					value={value}
-					onChange={handleChange}
-					onKeyDown={handleKeydown}
-					inputProps={{
-						maxLength: 7
-					}}
-				/>
+		<form onSubmit={handleSave}>
+			<Grid container spacing={1}>
+				<Grid item>
+					<TextField
+						label={`${capitalize(variant)} Color`}
+						variant="outlined"
+						size="small"
+						color="secondary"
+						value={value}
+						onChange={handleChange}
+						onKeyDown={handleKeydown}
+						inputProps={{
+							maxLength: 7
+						}}
+					/>
+				</Grid>
+				<Grid item>
+					<Button color="secondary" variant="contained" onClick={handleSave}>
+						Set <Typography sx={visuallyHidden}>{variant}</Typography>
+					</Button>
+				</Grid>
 			</Grid>
-			<Grid item>
-				<Button color="secondary" variant="contained" onClick={handleSave}>
-					Set <Typography sx={visuallyHidden}>{variant}</Typography>
-				</Button>
-			</Grid>
-		</Grid>
+		</form>
 	);
 }
