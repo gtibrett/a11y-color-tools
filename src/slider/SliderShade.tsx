@@ -1,4 +1,5 @@
-import {Card, CardContent, SxProps, useTheme} from '@mui/material';
+import {Card, CardContent, SxProps, Typography, useTheme} from '@mui/material';
+import {visuallyHidden} from '@mui/utils';
 import useGetContrastingColor from './useGetContrastingColor';
 
 type SliderShadeProps = {
@@ -20,7 +21,9 @@ export default function SliderShade({shade}: SliderShadeProps) {
 	
 	return (
 		<Card variant="outlined" sx={sx}>
-			<CardContent sx={{mt: 2.5, textAlign: 'center'}}/>
+			<CardContent sx={{mt: 2.5, textAlign: 'center'}}>
+				<Typography sx={visuallyHidden}>{shade}</Typography>
+			</CardContent>
 		</Card>
 	);
 }

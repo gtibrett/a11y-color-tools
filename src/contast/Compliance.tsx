@@ -29,7 +29,7 @@ export const calcCompliance = (ratio: ComplianceProps['ratio'], sample: Complian
 	return match.label as Threshold;
 };
 
-const CompianceIcon = ({label}: { label: Threshold }) => {
+const ComplianceIcon = ({label}: { label: Threshold }) => {
 	const darkMode  = useDarkMode();
 	const passColor = green[darkMode ? 200 : 800];
 	const failColor = red[darkMode ? 200 : 800];
@@ -48,6 +48,6 @@ export default function Compliance({ratio, sample, version}: ComplianceProps) {
 	const label = calcCompliance(ratio, sample, version);
 	
 	return (
-		<Chip variant="outlined" size="small" label={label} icon={<CompianceIcon label={label}/>} />
+		<Chip variant="outlined" size="small" label={label} icon={<ComplianceIcon label={label}/>} />
 	);
 }

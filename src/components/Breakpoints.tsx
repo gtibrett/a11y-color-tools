@@ -45,7 +45,7 @@ const Breakpoints: FC = () => {
 				</svg>
 			</Box>
 			<Fab size="small" color="secondary" onClick={() => setShow(cur => !cur)} sx={{position: 'absolute', bottom: 24, right: 24}}>
-				<FontAwesomeIcon icon={faColumns}/>
+				<FontAwesomeIcon icon={faColumns} title="toggle breakpoints"/>
 			</Fab>
 		</>
 	);
