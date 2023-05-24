@@ -22,7 +22,7 @@ export default function Dialog({linkLabel, title, href, children}: PropsWithChil
 							<Typography variant="h3" component="h2">{title}</Typography>
 						</Grid>
 						<Grid item>
-							<IconButton onClick={() => setOpen(false)}>
+							<IconButton onClick={() => setOpen(false)} title="close dialog">
 								<FontAwesomeIcon icon={faTimes}/>
 							</IconButton>
 						</Grid>

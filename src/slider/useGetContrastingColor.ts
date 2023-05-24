@@ -1,7 +1,5 @@
-import {getLuminance, useTheme} from '@mui/material';
+import {getLuminance} from '@mui/material';
 
 export default function useGetContrastingColor() {
-	const theme = useTheme();
-	
-	return (color: string) => getLuminance(color) <= .5 ? theme.palette.common.white : theme.palette.common.black;
+	return (color: string) => getLuminance(color) <= .5 ? '#ffffff' : '#000000';
 }

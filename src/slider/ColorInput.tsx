@@ -17,13 +17,12 @@ const handleKeydown: KeyboardEventHandler<HTMLDivElement> = (ev) => {
 	}
 	
 	if (!ALLOWED_CHARACTERS.includes(ev.key.toUpperCase())) {
-		console.log(ev.key);
 		ev.preventDefault();
 	}
 };
 
 export default function ColorInput({variant}: ColorInputProps) {
-	const color             = useColorVariant(variant);
+	const color             = useColorVariant(variant) || '#000';
 	const [value, setValue] = useState(color);
 	const setByVariant      = useSetByVariant();
 	
