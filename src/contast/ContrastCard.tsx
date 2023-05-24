@@ -1,20 +1,19 @@
 import {Card, CardContent, CardHeader, getContrastRatio, Grid, SxProps, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, useTheme} from '@mui/material';
 import {calcAPCA} from 'apca-w3';
 import useComponentDimensionsWithRef from '../components/useComponentDimensionsWithRef';
+import {useColorVariant} from '../redux/store';
 import Compliance from './Compliance';
 import {fontSamples} from './FontSamples';
 import Sample from './Sample';
 
 const round = (num: number) => Math.round(num * 1000) / 1000;
 
-type ContrastCardProps = {
-	foreground: string;
-	background: string;
-}
-
-export default function ContrastCard({foreground, background}: ContrastCardProps) {
+export default function ContrastCard() {
 	const theme             = useTheme();
+	const foreground        = useColorVariant('foreground');
+	const background        = useColorVariant('background');
 	const {ref, dimensions} = useComponentDimensionsWithRef();
+	
 	
 	const sx: SxProps = {
 		height:     dimensions.width,

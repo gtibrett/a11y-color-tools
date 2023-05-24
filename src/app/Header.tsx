@@ -6,14 +6,13 @@ import MoreTools from '../dialogs/MoreTools';
 
 const faPalette = getFontAwesomeIcon('faPalette');
 
-
 export default function Header() {
 	const theme   = useTheme();
 	const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
 	
 	return (
-		<>
-			<AppBar component="header" position="fixed" sx={{top: 0, borderBottom: `1px solid ${theme.palette.divider}`}} color="inherit" elevation={0}>
+		<header>
+			<AppBar position="fixed" sx={{top: 0, borderBottom: `1px solid ${theme.palette.divider}`}} color="inherit" elevation={0}>
 				<Container>
 					<Toolbar>
 						<Grid container spacing={2} alignItems="center">
@@ -29,6 +28,6 @@ export default function Header() {
 				</Container>
 			</AppBar>
 			<Toolbar sx={{height: isSmall ? 130 : 90}}/>
-		</>
+		</header>
 	);
 }

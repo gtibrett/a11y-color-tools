@@ -1,5 +1,5 @@
-import {darken, lighten} from './utils';
+import {darken, lighten, rgbToHex} from '@mui/material';
 
 export default function useColorShades(color: string): string[] {
-	return [-1, 0, 1].map(offset => (offset < 0 ? darken : lighten)(color, (Math.abs(offset * 5))));
+	return [-1, 0, 1].map(offset => rgbToHex((offset < 0 ? darken : lighten)(color, (Math.abs(offset * .1)))));
 }

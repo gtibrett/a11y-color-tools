@@ -2,22 +2,27 @@ import {faChevronDown, faChevronLeft, faChevronRight, faChevronUp} from '@fortaw
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Box, Button, Card, CardContent, CardHeader, CardHeaderProps, Grid, Hidden, useMediaQuery, useTheme} from '@mui/material';
 import {useSetByVariant} from '../redux/colorsSlice';
+import {useColorVariant} from '../redux/store';
 import {ColorVariant} from '../types';
 import ColorInput from './ColorInput';
 import SliderShade from './SliderShade';
 import useColorShades from './useColorShades';
 
 type ColorSliderProps = {
-	title: CardHeaderProps['title'];
 	variant: ColorVariant;
-	color: string;
+	title: CardHeaderProps['title'];
 }
 
-export default function ColorSlider({title, variant, color}: ColorSliderProps) {
+export default function ColorSlider({title, variant}: ColorSliderProps) {
 	const theme        = useTheme();
+	const color        = useColorVariant(variant);
 	const shades       = useColorShades(color);
 	const setByVariant = useSetByVariant();
 	const isSmall      = useMediaQuery(theme.breakpoints.down('sm'));
+	
+	if (!color?.length) {
+		return null;
+	}
 	
 	const darken = () => {
 		setByVariant(variant, shades[0]);

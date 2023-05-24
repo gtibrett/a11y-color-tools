@@ -37,6 +37,10 @@ export const useSetByVariant = () => {
 			case 'background':
 				dispatch(background(color));
 				break;
+			
+			default:
+				// bad save
+				console.error('unknown variant');
 		}
 	};
 };
