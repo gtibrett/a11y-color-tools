@@ -1,14 +1,6 @@
 import {act, cleanup, render, screen} from '@testing-library/react';
-import {PropsWithChildren} from 'react';
-import {Provider} from 'react-redux';
-import {resizeScreenSize} from '../jest';
-import {testForAccessibility} from '../jest/testForAccessibility';
-import store from '../redux/store';
+import {ReduxContainer, resizeScreenSize, testForAccessibility} from '../jest';
 import ColorSlider from './ColorSlider';
-
-const ReduxContainer = ({children}: PropsWithChildren) => {
-	return <Provider store={store}>{children}</Provider>;
-};
 
 describe('ColorSlider.tsx', () => {
 	afterEach(cleanup);

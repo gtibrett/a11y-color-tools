@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest/testForAccessibility';
+import {testForAccessibility} from '../jest';
 import SliderShade from './SliderShade';
 
 describe('SliderShade.tsx', () => {

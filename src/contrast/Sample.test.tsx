@@ -1,5 +1,5 @@
 import {cleanup, render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest/testForAccessibility';
+import {testForAccessibility} from '../jest';
 import Sample from './Sample';
 
 describe('Sample.tsx', () => {

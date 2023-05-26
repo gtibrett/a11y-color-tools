@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react';
-import {resizeScreenSize} from '../jest';
-import {testForAccessibility} from '../jest/testForAccessibility';
+import {BrowserRouter} from 'react-router-dom';
+import {resizeScreenSize, testForAccessibility} from '../jest';
 import Header from './Header';
 
 jest.mock('apca-w3', () => {

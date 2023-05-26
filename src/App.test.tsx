@@ -1,11 +1,11 @@
 import {render, screen} from '@testing-library/react';
 import App from './App';
-import {testForAccessibility} from './jest/testForAccessibility';
+import {testForAccessibility} from './jest';
 
 jest.mock('apca-w3', () => {
 	return {
 		__esModule: true,
-		calcAPCA: jest.fn(() => 70)
+		calcAPCA:   jest.fn(() => 70)
 	};
 });
 
