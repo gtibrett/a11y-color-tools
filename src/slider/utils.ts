@@ -14,7 +14,7 @@ export const lighten = (color: string, amount: number) => {
 export const darken = (color: string, amount: number) => {
 	const colorObject = decomposeColor(color);
 	
-	const darkenChannel  = (v: number) => Math.max(v - amount, 0);
+	const darkenChannel   = (v: number) => Math.max(v - amount, 0);
 	colorObject.values[0] = darkenChannel(colorObject.values[0]);
 	colorObject.values[1] = darkenChannel(colorObject.values[1]);
 	colorObject.values[2] = darkenChannel(colorObject.values[2]);
