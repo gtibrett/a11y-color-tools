@@ -1,11 +1,10 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {AppBar, Container, Grid, Toolbar, Typography, useMediaQuery, useTheme} from '@mui/material';
 import getFontAwesomeIcon from '../components/getFontAwesomeIcon';
-import About from '../dialogs/About';
-import MoreTools from '../dialogs/MoreTools';
+import Link from '../components/Link';
+import Navigation from './Navigation';
 
 const faPalette = getFontAwesomeIcon('faPalette');
-
 
 export default function Header() {
 	const theme   = useTheme();
@@ -18,12 +17,13 @@ export default function Header() {
 					<Toolbar>
 						<Grid container spacing={2} alignItems="center">
 							<Grid item>
-								<FontAwesomeIcon icon={faPalette} size="2x" style={{transform: 'rotate(-40deg)'}}/>
-								<Typography variant="h1" sx={{fontFamily: 'Fira Sans', ml: 2, fontSize: 32, display: 'inline-block'}}>a11y color tools</Typography>
+								<Link to="/" sx={{display: 'inline-block'}}>
+									<FontAwesomeIcon icon={faPalette} size="2x" style={{transform: 'rotate(-40deg)', verticalAlign: isSmall ? -8 : undefined}}/>
+									<Typography variant="h1" sx={{fontFamily: 'Fira Sans', ml: {xs: 1, sm: 2}, fontSize: {xs: 21, sm: 32}, display: 'inline-block'}}>a11y color tools</Typography>
+								</Link>
 							</Grid>
 							<Grid item xs/>
-							<Grid item><About/></Grid>
-							<Grid item><MoreTools/></Grid>
+							<Navigation/>
 						</Grid>
 					</Toolbar>
 				</Container>
