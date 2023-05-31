@@ -1,6 +1,7 @@
+import {resizeScreenSize} from '@gtibrett/mui-additions';
 import {render, screen} from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
-import {ReduxContainer, resizeScreenSize} from '../jest';
+import {ReduxContainer} from '../jest';
 import Routes, {useNavLinks} from './Routes';
 
 jest.mock('apca-w3', () => {

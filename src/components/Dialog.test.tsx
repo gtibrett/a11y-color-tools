@@ -1,6 +1,6 @@
 import {act, cleanup, render, RenderOptions, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {testContainerForAccessibility} from '../jest';
+import {testContainerForAccessibility} from '@gtibrett/mui-additions';
 import Dialog from './Dialog';
 
 describe('Dialog.tsx', () => {

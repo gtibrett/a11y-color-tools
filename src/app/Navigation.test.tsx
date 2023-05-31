@@ -1,7 +1,8 @@
 import {act, cleanup, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event/index';
 import {BrowserRouter} from 'react-router-dom';
-import {resizeScreenSize, testForAccessibility} from '../jest';
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import Header from './Header';
 import Navigation from './Navigation';
 
@@ -56,6 +57,7 @@ describe('Navigation.tsx', () => {
 	testForAccessibility(
 		<BrowserRouter>
 			<Header/>
-		</BrowserRouter>
+		</BrowserRouter>,
+		getThemes()
 	);
 });

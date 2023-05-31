@@ -1,5 +1,5 @@
 import {act, cleanup, render, RenderOptions, screen} from '@testing-library/react';
-import {testContainerForAccessibility} from '../jest';
+import {testContainerForAccessibility} from '@gtibrett/mui-additions';
 import MoreTools from './MoreTools';
 
 describe('MoreTools.tsx', () => {

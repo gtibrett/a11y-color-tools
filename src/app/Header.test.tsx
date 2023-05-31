@@ -1,6 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
-import {resizeScreenSize, testForAccessibility} from '../jest';
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import Header from './Header';
 
 jest.mock('apca-w3', () => {
@@ -37,6 +38,7 @@ describe('Header.tsx', () => {
 	testForAccessibility(
 		<BrowserRouter>
 			<Header/>
-		</BrowserRouter>
+		</BrowserRouter>,
+		getThemes()
 	);
 });

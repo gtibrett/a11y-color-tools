@@ -1,5 +1,6 @@
+import {testForAccessibility} from '@gtibrett/mui-additions';
 import {render, screen} from '@testing-library/react';
-import {ReduxContainer, testForAccessibility} from '../jest';
+import {getThemes, ReduxContainer} from '../jest';
 import Home from './Home';
 
 jest.mock('apca-w3', () => {
@@ -24,6 +25,7 @@ describe('Home.tsx', () => {
 	testForAccessibility(
 		<ReduxContainer>
 			<Home/>
-		</ReduxContainer>
+		</ReduxContainer>,
+		getThemes()
 	);
 });
