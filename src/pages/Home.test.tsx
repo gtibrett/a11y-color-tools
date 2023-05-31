@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react';
-import App from './App';
-import {testForAccessibility} from './jest';
+import {ReduxContainer, testForAccessibility} from '../jest';
+import Home from './Home';
 
 jest.mock('apca-w3', () => {
 	return {
@@ -9,14 +9,21 @@ jest.mock('apca-w3', () => {
 	};
 });
 
-describe('App.tsx', () => {
+describe('Home.tsx', () => {
 	test('Render', async () => {
-		render(<App/>);
-		expect(screen.getByText('a11y color tools')).toBeInTheDocument();
+		render(
+			<ReduxContainer>
+				<Home/>
+			</ReduxContainer>
+		);
 		expect(screen.getByText('Foreground')).toBeInTheDocument();
 		expect(screen.getByText('Background')).toBeInTheDocument();
 		expect(screen.getByText('Contrast')).toBeInTheDocument();
 	});
 	
-	testForAccessibility(<App/>);
+	testForAccessibility(
+		<ReduxContainer>
+			<Home/>
+		</ReduxContainer>
+	);
 });

@@ -1,33 +1,33 @@
 import {act, cleanup, render, RenderOptions, screen} from '@testing-library/react';
-import {testContainerForAccessibility} from '../jest/testForAccessibility';
-import About from './About';
+import {testContainerForAccessibility} from '../jest';
+import MoreTools from './MoreTools';
 
-describe('About.tsx', () => {
+describe('MoreTools.tsx', () => {
 	afterEach(cleanup);
 	
 	test('Render', async () => {
 		render(
-			<About/>
+			<MoreTools/>
 		);
 		
-		const linkEl = screen.getByText('About');
+		const linkEl = screen.getByText('More Tools');
 		expect(linkEl).toBeInTheDocument();
 		
 		await act(() => {
 			linkEl.click();
 		});
 		
-		expect(screen.getByText(/the ultimate tool for analyzing color contrast/i)).toBeVisible();
+		expect(screen.getByText(/Color Picker by Level Access/i)).toBeVisible();
 	});
 	
 	testContainerForAccessibility(
 		async (options: RenderOptions) => {
 			const {container} = render(
-				<About/>,
+				<MoreTools/>,
 				options
 			);
 			
-			const linkEl = screen.getByText('About');
+			const linkEl = screen.getByText('More Tools');
 			await act(() => {
 				linkEl.click();
 			});

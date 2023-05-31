@@ -1,11 +1,11 @@
 import {cleanup, render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest/testForAccessibility';
+import {testForAccessibility} from '../jest';
 import ContrastCard from './ContrastCard';
 
 jest.mock('apca-w3', () => {
 	return {
 		__esModule: true,
-		calcAPCA: jest.fn(() => 70)
+		calcAPCA:   jest.fn(() => 70)
 	};
 });
 

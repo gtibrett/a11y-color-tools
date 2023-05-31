@@ -1,5 +1,5 @@
 import {act, render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest/testForAccessibility';
+import {testForAccessibility} from '../jest';
 import Breakpoints from './Breakpoints';
 
 describe('Breakpoints.tsx', () => {
@@ -8,7 +8,7 @@ describe('Breakpoints.tsx', () => {
 		expect(screen.getByTitle('toggle breakpoints')).toBeInTheDocument();
 		
 		const button = screen.getByRole('button');
-		await act(()=> {
+		await act(() => {
 			button.click();
 		});
 		

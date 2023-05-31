@@ -1,6 +1,6 @@
 import {act, cleanup, render, RenderOptions, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {testContainerForAccessibility} from '../jest/testForAccessibility';
+import {testContainerForAccessibility} from '../jest';
 import Dialog from './Dialog';
 
 describe('Dialog.tsx', () => {
@@ -33,7 +33,7 @@ describe('Dialog.tsx', () => {
 	});
 	
 	test('Close with Escape key', async () => {
-		const user = userEvent.setup()
+		const user = userEvent.setup();
 		
 		render(
 			<Dialog href="#test" linkLabel="test link" title="Dialog Title">
