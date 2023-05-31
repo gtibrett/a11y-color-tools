@@ -1,5 +1,6 @@
+import {testForAccessibility} from '@gtibrett/mui-additions';
 import {cleanup, render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest/testForAccessibility';
+import {getThemes} from '../jest';
 import Sample from './Sample';
 
 describe('Sample.tsx', () => {
@@ -10,5 +11,5 @@ describe('Sample.tsx', () => {
 		expect(screen.getByText('36pt bold')).toBeInTheDocument();
 	});
 	
-	testForAccessibility(<Sample size={36} weight="bold" color="#000"/>);
+	testForAccessibility(<Sample size={36} weight="bold" color="#000"/>, getThemes());
 });

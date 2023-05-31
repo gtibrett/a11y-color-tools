@@ -1,14 +1,7 @@
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
 import {act, cleanup, render, screen} from '@testing-library/react';
-import {PropsWithChildren} from 'react';
-import {Provider} from 'react-redux';
-import {resizeScreenSize} from '../jest';
-import {testForAccessibility} from '../jest/testForAccessibility';
-import store from '../redux/store';
+import {getThemes, ReduxContainer} from '../jest';
 import ColorSlider from './ColorSlider';
-
-const ReduxContainer = ({children}: PropsWithChildren) => {
-	return <Provider store={store}>{children}</Provider>;
-};
 
 describe('ColorSlider.tsx', () => {
 	afterEach(cleanup);
@@ -71,5 +64,5 @@ describe('ColorSlider.tsx', () => {
 		expect(textboxes[0].value).toBe('#fafafa');
 	});
 	
-	testForAccessibility(<ReduxContainer><ColorSlider color="#000" variant="background" title="Background"/></ReduxContainer>);
+	testForAccessibility(<ReduxContainer><ColorSlider color="#000" variant="background" title="Background"/></ReduxContainer>, getThemes());
 });

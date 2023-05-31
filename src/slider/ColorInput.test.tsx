@@ -1,15 +1,10 @@
+import {testForAccessibility} from '@gtibrett/mui-additions';
 import {act, cleanup, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {UserEvent} from '@testing-library/user-event/setup/setup';
-import React, {PropsWithChildren} from 'react';
-import {Provider} from 'react-redux';
-import {testForAccessibility} from '../jest/testForAccessibility';
-import store from '../redux/store';
+import React from 'react';
+import {getThemes, ReduxContainer} from '../jest';
 import ColorInput from './ColorInput';
-
-const ReduxContainer = ({children}: PropsWithChildren) => {
-	return <Provider store={store}>{children}</Provider>;
-};
 
 describe('ColorInput.tsx', () => {
 	let user: UserEvent | undefined;
@@ -57,6 +52,7 @@ describe('ColorInput.tsx', () => {
 	testForAccessibility(
 		<ReduxContainer>
 			<ColorInput variant="foreground"/>
-		</ReduxContainer>
+		</ReduxContainer>,
+		getThemes()
 	);
 });

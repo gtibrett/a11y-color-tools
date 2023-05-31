@@ -1,5 +1,6 @@
 import {render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest/testForAccessibility';
+import {testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import SliderShade from './SliderShade';
 
 describe('SliderShade.tsx', () => {
@@ -8,5 +9,5 @@ describe('SliderShade.tsx', () => {
 		expect(screen.getByText('#009')).toBeInTheDocument();
 	});
 	
-	testForAccessibility(<SliderShade shade="#009"/>);
+	testForAccessibility(<SliderShade shade="#009"/>, getThemes());
 });

@@ -1,6 +1,6 @@
 import {Card, CardContent, CardHeader, getContrastRatio, Grid, SxProps, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, useTheme} from '@mui/material';
 import {calcAPCA} from 'apca-w3';
-import useComponentDimensionsWithRef from '../components/useComponentDimensionsWithRef';
+import {useComponentDimensionsWithRef} from '@gtibrett/mui-additions';
 import Compliance from './Compliance';
 import {fontSamples} from './FontSamples';
 import Sample from './Sample';

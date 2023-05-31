@@ -1,7 +1,7 @@
-import {render, screen} from '@testing-library/react';
-import App from './App';
 import {testForAccessibility} from '@gtibrett/mui-additions';
-import {getThemes} from './jest';
+import {render, screen} from '@testing-library/react';
+import {getThemes, ReduxContainer} from '../jest';
+import Home from './Home';
 
 jest.mock('apca-w3', () => {
 	return {
@@ -10,14 +10,22 @@ jest.mock('apca-w3', () => {
 	};
 });
 
-describe('App.tsx', () => {
+describe('Home.tsx', () => {
 	test('Render', async () => {
-		render(<App/>);
-		expect(screen.getByText('a11y color tools')).toBeInTheDocument();
+		render(
+			<ReduxContainer>
+				<Home/>
+			</ReduxContainer>
+		);
 		expect(screen.getByText('Foreground')).toBeInTheDocument();
 		expect(screen.getByText('Background')).toBeInTheDocument();
 		expect(screen.getByText('Contrast')).toBeInTheDocument();
 	});
 	
-	testForAccessibility(<App/>, getThemes());
+	testForAccessibility(
+		<ReduxContainer>
+			<Home/>
+		</ReduxContainer>,
+		getThemes()
+	);
 });

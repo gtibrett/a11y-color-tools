@@ -48,6 +48,6 @@ export default function Compliance({ratio, sample, version}: ComplianceProps) {
 	const label = calcCompliance(ratio, sample, version);
 	
 	return (
-		<Chip variant="outlined" size="small" label={label} icon={<ComplianceIcon label={label}/>} />
+		<Chip variant="outlined" size="small" label={label} icon={<ComplianceIcon label={label}/>}/>
 	);
 }

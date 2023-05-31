@@ -1,38 +1,40 @@
 import {act, cleanup, render, RenderOptions, screen} from '@testing-library/react';
-import {testContainerForAccessibility} from '../jest/testForAccessibility';
-import MoreTools from './MoreTools';
+import {testContainerForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
+import About from './About';
 
-describe('MoreTools.tsx', () => {
+describe('About.tsx', () => {
 	afterEach(cleanup);
 	
 	test('Render', async () => {
 		render(
-			<MoreTools/>
+			<About/>
 		);
 		
-		const linkEl = screen.getByText('More Tools');
+		const linkEl = screen.getByText('About');
 		expect(linkEl).toBeInTheDocument();
 		
 		await act(() => {
 			linkEl.click();
 		});
 		
-		expect(screen.getByText(/Color Picker by Level Access/i)).toBeVisible();
+		expect(screen.getByText(/the ultimate tool for analyzing color contrast/i)).toBeVisible();
 	});
 	
 	testContainerForAccessibility(
 		async (options: RenderOptions) => {
 			const {container} = render(
-				<MoreTools/>,
+				<About/>,
 				options
 			);
 			
-			const linkEl = screen.getByText('More Tools');
+			const linkEl = screen.getByText('About');
 			await act(() => {
 				linkEl.click();
 			});
 			
 			return container;
-		}
+		},
+		getThemes()
 	);
 });

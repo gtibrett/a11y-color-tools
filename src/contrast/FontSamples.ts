@@ -66,7 +66,7 @@ export const fontSamples: FontSample[] = [
 			'AA':  3
 		},
 		apcaThresholds: {
-			'Pass': 75,
+			'Pass': 75
 		}
 	},
 	{
