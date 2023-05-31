@@ -1367,6 +1367,11 @@
   dependencies:
     prop-types "^15.8.1"
 
+"@gtibrett/mui-additions@^0.2.0":
+  version "0.2.0"
+  resolved "https://npm.pkg.github.com/download/@gtibrett/mui-additions/0.2.0/96e28f8140a6937a85488cf59ee7eb1deabfeff8#96e28f8140a6937a85488cf59ee7eb1deabfeff8"
+  integrity sha512-9Uj43V0ueZEnsBbUj2z+RcmFddd1SxxMthTtWZ4NM6b+aG8Cg6+p0NY/dHBetIg8mzPtEdBGJ7/4s8sHJnXqRQ==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"

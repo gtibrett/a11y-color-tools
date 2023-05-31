@@ -1,5 +1,6 @@
 import {act, cleanup, render, RenderOptions, screen} from '@testing-library/react';
-import {testContainerForAccessibility} from '../jest';
+import {testContainerForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import About from './About';
 
 describe('About.tsx', () => {
@@ -33,6 +34,7 @@ describe('About.tsx', () => {
 			});
 			
 			return container;
-		}
+		},
+		getThemes()
 	);
 });

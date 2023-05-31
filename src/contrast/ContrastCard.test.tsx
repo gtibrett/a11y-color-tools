@@ -1,5 +1,6 @@
 import {cleanup, render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest';
+import {testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import ContrastCard from './ContrastCard';
 
 jest.mock('apca-w3', () => {
@@ -17,5 +18,5 @@ describe('ContrastCard.tsx', () => {
 		expect((await screen.findAllByText('36pt normal')).length).toBe(2);
 	});
 	
-	testForAccessibility(<ContrastCard foreground="#000" background="#FFFFFF"/>);
+	testForAccessibility(<ContrastCard foreground="#000" background="#FFFFFF"/>, getThemes());
 });

@@ -1,6 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
-import {testForAccessibility} from '../jest';
+import {testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import Link from './Link';
 
 describe('Link.tsx', () => {
@@ -38,7 +39,8 @@ describe('Link.tsx', () => {
 		testForAccessibility(
 			<BrowserRouter>
 				<Link to="/">Home</Link>
-			</BrowserRouter>
+			</BrowserRouter>,
+			getThemes()
 		);
 	});
 	
@@ -56,7 +58,8 @@ describe('Link.tsx', () => {
 		testForAccessibility(
 			<BrowserRouter>
 				<Link href="/">Home</Link>
-			</BrowserRouter>
+			</BrowserRouter>,
+			getThemes()
 		);
 	});
 	
@@ -74,7 +77,8 @@ describe('Link.tsx', () => {
 		testForAccessibility(
 			<BrowserRouter>
 				<Link to="/" target="_blank">Home</Link>
-			</BrowserRouter>
+			</BrowserRouter>,
+			getThemes()
 		);
 	});
 	
@@ -92,7 +96,8 @@ describe('Link.tsx', () => {
 		testForAccessibility(
 			<BrowserRouter>
 				<Link href="/" target="_blank">Home</Link>
-			</BrowserRouter>
+			</BrowserRouter>,
+			getThemes()
 		);
 	});
 });

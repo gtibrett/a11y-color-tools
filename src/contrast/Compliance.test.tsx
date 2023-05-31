@@ -1,5 +1,6 @@
 import {cleanup, render, screen} from '@testing-library/react';
-import {testForAccessibility} from '../jest';
+import {testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import Compliance from './Compliance';
 import {fontSamples} from './FontSamples';
 
@@ -27,8 +28,9 @@ describe('Compliance.tsx', () => {
 			expect(screen.getByText('Fail')).toBeVisible();
 		});
 		
-		testForAccessibility(<Compliance ratio={7} sample={fontSamples[0]} version="2.x"/>);
-		testForAccessibility(<Compliance ratio={2} sample={fontSamples[0]} version="2.x"/>);
+		const themes = getThemes();
+		testForAccessibility(<Compliance ratio={7} sample={fontSamples[0]} version="2.x"/>, themes);
+		testForAccessibility(<Compliance ratio={2} sample={fontSamples[0]} version="2.x"/>, themes);
 	});
 	
 	describe('WCAG Silver', () => {

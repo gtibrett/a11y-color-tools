@@ -1,5 +1,6 @@
 import {render, screen} from '@testing-library/react';
-import {resizeScreenSize, testForAccessibility} from '../jest';
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from '../jest';
 import ErrorBoundary from './ErrorBoundary';
 
 const error = jest.spyOn(console, 'error').mockImplementation(() => {
@@ -39,6 +40,7 @@ describe('Routes.tsx', () => {
 	testForAccessibility(
 		<ErrorBoundary>
 			<ForcedError force/>
-		</ErrorBoundary>
+		</ErrorBoundary>,
+		getThemes()
 	);
 });

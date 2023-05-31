@@ -1,6 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import App from './App';
-import {testForAccessibility} from './jest';
+import {testForAccessibility} from '@gtibrett/mui-additions';
+import {getThemes} from './jest';
 
 jest.mock('apca-w3', () => {
 	return {
@@ -18,5 +19,5 @@ describe('App.tsx', () => {
 		expect(screen.getByText('Contrast')).toBeInTheDocument();
 	});
 	
-	testForAccessibility(<App/>);
+	testForAccessibility(<App/>, getThemes());
 });
