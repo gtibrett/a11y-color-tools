@@ -23,6 +23,6 @@ artifacts:
 reports:
   coverage_reports:
     files:
-    - clover.xml
+    - ./coverage/clover.xml
     file-format: CLOVERXML
     base-directory: ./coverage

@@ -49,11 +49,11 @@
 		"nth-check": "^2.1.1"
 	},
 	"scripts": {
-		"clean": "rm -fr build",
+		"clean": "rm -fr build coverage",
 		"start": "react-scripts start",
-		"prebuild": "react-scripts clean",
+		"prebuild": "yarn clean",
 		"build": "react-scripts build",
-		"postbuild": "react-scripts test --watchAll=false",
+		"postbuild": "react-scripts test --coverage --watchAll=false",
 		"test": "react-scripts test --coverage --verbose"
 	},
 	"eslintConfig": {
