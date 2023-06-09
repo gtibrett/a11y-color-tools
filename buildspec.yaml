@@ -25,4 +25,4 @@ reports:
     files:
     - ./coverage/clover.xml
     file-format: CLOVERXML
-    base-directory: ./coverage
+#    base-directory: ./coverage
