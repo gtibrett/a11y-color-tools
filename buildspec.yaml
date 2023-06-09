@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - cp ./.github/.npmrc ~/.npmrc
+      - sed -i 's/FONT_AWESOME_KEY/${FONT_AWESOME_KEY}/g' ~/.npmrc
+      - sed -i 's/GIT_NPM_KEY/${GIT_NPM_KEY}/g' ~/.npmrc
+  pre_build:
+    commands:
+      - yarn install
+      - yarn test
+  build:
+    commands:
+      - yarn build
+
+artifacts:
+  base-directory: ./build
+  files:
+    - '**/*'
+
+reports:
+  coverage_reports:
+    files:
+    - clover.xml
+    file-format: CLOVERXML
+    base-directory: ./coverage
