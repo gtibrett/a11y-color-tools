@@ -1,5 +1,5 @@
 import {cleanup, render, screen} from '@testing-library/react';
-import {testForAccessibility} from '@gtibrett/mui-additions';
+import {testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {getThemes} from '../jest';
 import Compliance from './Compliance';
 import {fontSamples} from './FontSamples';

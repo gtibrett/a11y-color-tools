@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {getThemes} from '../jest';
 import ErrorBoundary from './ErrorBoundary';
 

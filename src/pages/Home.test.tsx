@@ -1,4 +1,4 @@
-import {testForAccessibility} from '@gtibrett/mui-additions';
+import {testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {render, screen} from '@testing-library/react';
 import {getThemes, ReduxContainer} from '../jest';
 import Home from './Home';

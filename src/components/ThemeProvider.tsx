@@ -1,6 +1,6 @@
-import {alpha, createTheme, lighten, useMediaQuery, useTheme} from '@mui/material';
+import {alpha, createTheme, lighten, ThemeProvider as MuiThemeProvider, useMediaQuery, useTheme} from '@mui/material';
 import {blue, blueGrey} from '@mui/material/colors';
-import {useMemo} from 'react';
+import {PropsWithChildren, useMemo} from 'react';
 
 export const useAppTheme = (overrideMode?: 'light' | 'dark') => {
 	const prefersDarkMode = (useMediaQuery('(prefers-color-scheme: dark)') && overrideMode !== 'light') || overrideMode === 'dark';
@@ -82,6 +82,10 @@ export const useAppTheme = (overrideMode?: 'light' | 'dark') => {
 				}
 			},
 			MuiDialog:        {
+				defaultProps:   {
+					fullWidth: true,
+					maxWidth:  'md'
+				},
 				styleOverrides: {
 					paper: {
 						background: prefersDarkMode ? blueGrey[900] : '#fff'
@@ -146,3 +150,7 @@ export const useInvertedTheme = () => {
 };
 
 export const useDarkMode = () => useTheme().palette.mode === 'dark';
+
+export default function ThemeProvider({children}: PropsWithChildren) {
+	return <MuiThemeProvider theme={useAppTheme()}>{children}</MuiThemeProvider>;
+}

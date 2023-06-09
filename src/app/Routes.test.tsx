@@ -1,4 +1,4 @@
-import {resizeScreenSize} from '@gtibrett/mui-additions';
+import {resizeScreenSize} from '@gtibrett/mui-additions/jest';
 import {render, screen} from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
 import {ReduxContainer} from '../jest';

@@ -1,10 +1,11 @@
-import {Box, CssBaseline, ThemeProvider, useTheme} from '@mui/material';
+import {UkraineButton} from '@gtibrett/mui-additions';
+import {Box, CssBaseline, useTheme} from '@mui/material';
 import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import Header from './app/Header';
 import Routes from './app/Routes';
-import {useAppTheme} from './components/Theme';
+import {ThemeProvider} from './components';
 import store from './redux/store';
 
 const InnerApp = () => {
@@ -15,6 +16,7 @@ const InnerApp = () => {
 			<Header/>
 			<main>
 				<Routes/>
+				<UkraineButton/>
 			</main>
 			<footer/>
 		</Box>
@@ -22,12 +24,10 @@ const InnerApp = () => {
 };
 
 export default function App() {
-	const theme = useAppTheme();
-	
 	return (
 		<Provider store={store}>
 			<CssBaseline/>
-			<ThemeProvider theme={theme}>
+			<ThemeProvider>
 				<BrowserRouter>
 					<InnerApp/>
 				</BrowserRouter>

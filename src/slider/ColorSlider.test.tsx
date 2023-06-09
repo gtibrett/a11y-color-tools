@@ -1,4 +1,4 @@
-import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {act, cleanup, render, screen} from '@testing-library/react';
 import {getThemes, ReduxContainer} from '../jest';
 import ColorSlider from './ColorSlider';

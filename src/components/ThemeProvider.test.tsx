@@ -1,8 +1,8 @@
 import {ThemeProvider} from '@mui/material';
 import {renderHook} from '@testing-library/react';
 import {PropsWithChildren} from 'react';
-import {setDarkMode} from '@gtibrett/mui-additions';
-import {useAppTheme, useDarkMode, useInvertedTheme} from './Theme';
+import {setDarkMode} from '@gtibrett/mui-additions/jest';
+import {useAppTheme, useDarkMode, useInvertedTheme} from './ThemeProvider';
 
 const LightModeWrapper = ({children}: PropsWithChildren) => {
 	const theme = useAppTheme('light');
@@ -14,7 +14,7 @@ const DarkModeWrapper = ({children}: PropsWithChildren) => {
 	return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-describe('Theme.ts', () => {
+describe('ThemeProvider.tsx', () => {
 	describe('useEffTheme', () => {
 		test('light mode', async () => {
 			const {result} = renderHook(() => useAppTheme('light'));

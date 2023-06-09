@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react';
 import App from './App';
-import {testForAccessibility} from '@gtibrett/mui-additions';
+import {testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {getThemes} from './jest';
 
 jest.mock('apca-w3', () => {

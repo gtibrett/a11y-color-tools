@@ -1,9 +1,12 @@
 import {faCircleHalfStroke, faEyeDropper} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Card, CardContent, CardHeader, Container, Link, List, ListItem, ListItemIcon, ListItemText, Typography} from '@mui/material';
+import {Link, usePageTitle} from '@gtibrett/mui-additions';
+import {Card, CardContent, CardHeader, Container, List, ListItem, ListItemIcon, ListItemText, Typography} from '@mui/material';
 import {visuallyHidden} from '@mui/utils';
 
 export default function MoreTools() {
+	usePageTitle('More Tools');
+	
 	return (
 		<Container>
 			<Card>

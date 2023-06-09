@@ -1,6 +1,6 @@
 import {render, screen} from '@testing-library/react';
 import {BrowserRouter} from 'react-router-dom';
-import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {getThemes} from '../jest';
 import Header from './Header';
 

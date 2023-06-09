@@ -1,4 +1,4 @@
-import {testForAccessibility} from '@gtibrett/mui-additions';
+import {testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {cleanup, render, screen} from '@testing-library/react';
 import {getThemes} from '../jest';
 import Sample from './Sample';
