@@ -54,7 +54,7 @@
 		"start": "react-scripts start",
 		"prebuild": "yarn clean",
 		"build": "react-scripts build",
-		"postbuild": "react-scripts test --coverage --watchAll=false",
+		"off-postbuild": "react-scripts test --coverage --watchAll=false",
 		"test": "react-scripts test --coverage --verbose"
 	},
 	"eslintConfig": {

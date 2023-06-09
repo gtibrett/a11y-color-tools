@@ -21,7 +21,7 @@ const ForcedError = ({force = true}: { force?: boolean }) => {
 	return <>forced error</>;
 };
 
-describe('Routes.tsx', () => {
+describe('ErrorBoundary.tsx', () => {
 	afterEach(() => error.mockReset());
 	
 	test('Render', async () => {
