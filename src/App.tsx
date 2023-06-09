@@ -2,7 +2,7 @@ import {UkraineButton} from '@gtibrett/mui-additions';
 import {Box, CssBaseline, useTheme} from '@mui/material';
 import React from 'react';
 import {Provider} from 'react-redux';
-import {HashRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import Header from './app/Header';
 import Routes from './app/Routes';
 import {ThemeProvider} from './components';
@@ -28,9 +28,9 @@ export default function App() {
 		<Provider store={store}>
 			<CssBaseline/>
 			<ThemeProvider>
-				<HashRouter>
+				<BrowserRouter>
 					<InnerApp/>
-				</HashRouter>
+				</BrowserRouter>
 			</ThemeProvider>
 		</Provider>
 	);

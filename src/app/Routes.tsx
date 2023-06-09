@@ -19,12 +19,12 @@ export const useNavLinks = () => {
 			element: <Home/>
 		},
 		{
-			path:    '/about',
+			path:    'about',
 			label:   'About',
 			element: <About/>
 		},
 		{
-			path:    '/more-tools',
+			path:    'more-tools',
 			label:   'More Tools',
 			element: <MoreTools/>
 		}
@@ -34,17 +34,16 @@ export const useNavLinks = () => {
 };
 
 const mapNavLinkToRoute = ({element, path}: NavRoute) => (
-	<Route key="path" element={element} path={path}/>
+	<Route key={path} element={element} path={path}/>
 );
 
 export default function Routes() {
 	const navLinks = useNavLinks();
-	const routes   = navLinks.map(mapNavLinkToRoute);
 	
 	return (
 		<ErrorBoundary>
 			<ReactRouterRoutes>
-				{routes}
+				{navLinks.map(mapNavLinkToRoute)}
 			</ReactRouterRoutes>
 		</ErrorBoundary>
 	);
