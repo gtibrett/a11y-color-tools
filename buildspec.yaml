@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 16
     commands:
       - cp ./.github/.npmrc ~/.npmrc
       - sed -i 's/FONT_AWESOME_KEY/${FONT_AWESOME_KEY}/g' ~/.npmrc
