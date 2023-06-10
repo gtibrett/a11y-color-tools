@@ -1,10 +1,10 @@
 import React, {ReactNode} from 'react';
-import {RouteProps} from 'react-router-dom';
+import {RouteObject} from 'react-router-dom';
 import About from '../pages/About';
 import Home from '../pages/Home';
 import MoreTools from '../pages/MoreTools';
 
-type NavRoute = RouteProps & {
+type NavRoute = RouteObject & {
 	label?: ReactNode;
 }
 
