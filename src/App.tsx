@@ -1,10 +1,8 @@
-import {faBomb} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {UkraineButton} from '@gtibrett/mui-additions';
-import {Box, Card, CardContent, CardHeader, Container, CssBaseline, Grid, Typography, useTheme} from '@mui/material';
+import {Box, CssBaseline, useTheme} from '@mui/material';
 import React from 'react';
 import {Provider} from 'react-redux';
-import {createBrowserRouter, Outlet, RouterProvider, useRouteError} from 'react-router-dom';
+import {createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom';
 import ErrorBoundary from './app/ErrorBoundary';
 import ErrorPage from './app/ErrorPage';
 import Header from './app/Header';

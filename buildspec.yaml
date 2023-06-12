@@ -8,12 +8,13 @@ phases:
       - cp ./.github/.npmrc ~/.npmrc
       - sed -i 's/FONT_AWESOME_KEY/${FONT_AWESOME_KEY}/g' ~/.npmrc
       - sed -i 's/GIT_NPM_KEY/${GIT_NPM_KEY}/g' ~/.npmrc
+      - yarn install
   pre_build:
     commands:
-      - yarn install
+    - yarn test:ci
   build:
     commands:
-      - yarn build
+    - yarn build
 
 artifacts:
   base-directory: ./build
@@ -25,4 +26,3 @@ reports:
     files:
     - ./coverage/clover.xml
     file-format: CLOVERXML
-    base-directory: ./coverage
