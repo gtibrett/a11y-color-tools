@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       nodejs: 16
     commands:
-      - cp ./.github/.npmrc ~/.npmrc
+      - cp ./aws/.npmrc ~/.npmrc
       - sed -i 's/FONT_AWESOME_KEY/${FONT_AWESOME_KEY}/g' ~/.npmrc
       - sed -i 's/GIT_NPM_KEY/${GIT_NPM_KEY}/g' ~/.npmrc
       - yarn install
