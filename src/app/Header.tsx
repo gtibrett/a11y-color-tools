@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Link} from '@gtibrett/mui-additions';
 import {AppBar, Container, Grid, Toolbar, Typography, useMediaQuery, useTheme} from '@mui/material';
-import getFontAwesomeIcon from '../components/getFontAwesomeIcon';
-import Link from '../components/Link';
+import {getFontAwesomeIcon} from '../components';
 import Navigation from './Navigation';
 
 const faPalette = getFontAwesomeIcon('faPalette');

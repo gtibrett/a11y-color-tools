@@ -1,4 +1,4 @@
-import {testForAccessibility} from '@gtibrett/mui-additions';
+import {testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {act, cleanup, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {UserEvent} from '@testing-library/user-event/setup/setup';

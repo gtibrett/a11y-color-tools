@@ -2,7 +2,7 @@ import {faCircleCheck, faCircleExclamation} from '@fortawesome/free-solid-svg-ic
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Chip} from '@mui/material';
 import {green, red} from '@mui/material/colors';
-import {useDarkMode} from '../components/Theme';
+import {useDarkMode} from '../components';
 import {FontSample, Threshold} from './FontSamples';
 
 type ComplianceProps = {

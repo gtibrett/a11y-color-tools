@@ -1,6 +1,9 @@
+import {usePageTitle} from '@gtibrett/mui-additions';
 import {Card, CardContent, CardHeader, Container, Typography} from '@mui/material';
 
 export default function About() {
+	usePageTitle('About');
+	
 	return (
 		<Container>
 			<Card>
