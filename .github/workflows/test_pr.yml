@@ -16,9 +16,12 @@ jobs:
       with:
         node-version: 18
         registry-url: https://npm.pkg.github.com/
-    - name: "Setup Font Awesome Registry"
+    - name: "Setup NPM Registries"
       run: |
-        cp .github/.npmrc ~/.npmrc; sed -i 's/FONT_AWESOME_KEY/${{ secrets.FONT_AWESOME_KEY }}/g' ~/.npmrc; sed -i 's/GIT_NPM_KEY/${{ secrets.GIT_NPM_KEY }}/g' ~/.npmrc;
+        cp .github/.npmrc ~/.npmrc
+        sed -i 's/FONT_AWESOME_KEY/${{ secrets.FONT_AWESOME_KEY }}/g' ~/.npmrc
+        sed -i 's/GIT_NPM_KEY/${{ secrets.GIT_NPM_KEY }}/g' ~/.npmrc
+        cat ~/.npmrc
     - name: "Install"
       run: yarn install
     - name: "Test"
