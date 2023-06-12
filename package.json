@@ -1,6 +1,6 @@
 {
 	"name":                 "@gtibrett/a11y-color-tools",
-	"version":              "0.3.0-beta",
+	"version":              "0.3.0",
 	"private":              true,
 	"devDependencies":      {
 		"@babel/core":                                       "^7.20.7",
