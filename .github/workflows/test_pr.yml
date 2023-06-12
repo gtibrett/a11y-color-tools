@@ -16,14 +16,12 @@ jobs:
       with:
         node-version: 18
         registry-url: https://npm.pkg.github.com/
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: "Setup NPM Registries"
       run: |
         cp .github/.npmrc ~/.npmrc
         sed -i 's/FONT_AWESOME_KEY/${{ secrets.FONT_AWESOME_KEY }}/g' ~/.npmrc
-        sed -i 's/GIT_NPM_KEY/${{ secrets.NPM_PAT_TOKEN }}/g' ~/.npmrc
         cat ~/.npmrc
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_PAT_TOKEN}}
     - name: "Install"
       run: yarn install
     - name: "Test"
