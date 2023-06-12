@@ -20,9 +20,9 @@ artifacts:
   files:
     - '**/*'
 
-#reports:
-#  coverage_reports:
-#    files:
-#    - ./coverage/clover.xml
-#    file-format: CLOVERXML
-#    base-directory: ./coverage
+reports:
+  coverage_reports:
+    files:
+    - ./coverage/clover.xml
+    file-format: CLOVERXML
+    base-directory: ./coverage

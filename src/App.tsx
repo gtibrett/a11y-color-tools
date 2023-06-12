@@ -6,6 +6,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {createBrowserRouter, Outlet, RouterProvider, useRouteError} from 'react-router-dom';
 import ErrorBoundary from './app/ErrorBoundary';
+import ErrorPage from './app/ErrorPage';
 import Header from './app/Header';
 import useRoutes from './app/useRoutes';
 import {ThemeProvider} from './components';
@@ -25,24 +26,6 @@ const InnerApp = () => {
 			</main>
 			<footer/>
 		</Box>
-	);
-};
-
-export const ErrorPage = () => {
-	const error: any = useRouteError();
-	console.error(error);
-	
-	return (
-		<Container sx={{p: 4}}>
-			<Card>
-				<CardHeader title="Oops, something bad happened" sx={{'--fa-animation-duration': '10s'}} avatar={<FontAwesomeIcon icon={faBomb} beat size="2x"/>}/>
-				<CardContent>
-					<Grid container justifyContent="space-evenly" alignItems="center" sx={{my: 4}}>
-						<Grid item><Typography variant="h2">{error?.error?.message}</Typography></Grid>
-					</Grid>
-				</CardContent>
-			</Card>
-		</Container>
 	);
 };
 

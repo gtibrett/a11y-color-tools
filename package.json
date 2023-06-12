@@ -54,7 +54,7 @@
 		"start": "react-scripts start",
 		"prebuild": "yarn clean",
 		"build": "react-scripts build",
-		"off-postbuild": "react-scripts test --coverage --watchAll=false",
+		"postbuild": "react-scripts test --coverage --watchAll=false",
 		"test": "react-scripts test --coverage --verbose",
 		"preserve": "yarn build",
 		"serve": "serve -s build"
