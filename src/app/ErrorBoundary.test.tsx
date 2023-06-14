@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react';
-import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions';
+import {resizeScreenSize, testForAccessibility} from '@gtibrett/mui-additions/jest';
 import {getThemes} from '../jest';
 import ErrorBoundary from './ErrorBoundary';
 
@@ -21,7 +21,7 @@ const ForcedError = ({force = true}: { force?: boolean }) => {
 	return <>forced error</>;
 };
 
-describe('Routes.tsx', () => {
+describe('ErrorBoundary.tsx', () => {
 	afterEach(() => error.mockReset());
 	
 	test('Render', async () => {

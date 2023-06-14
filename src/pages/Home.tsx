@@ -1,3 +1,4 @@
+import {usePageTitle} from '@gtibrett/mui-additions';
 import {Container, Grid} from '@mui/material';
 import React from 'react';
 import ContrastCard from '../contrast/ContrastCard';
@@ -5,6 +6,8 @@ import {useColorVariant} from '../redux/store';
 import ColorSlider from '../slider/ColorSlider';
 
 export default function Home() {
+	usePageTitle('Home');
+	
 	const foreground = useColorVariant('foreground');
 	const background = useColorVariant('background');
 	

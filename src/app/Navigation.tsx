@@ -1,10 +1,10 @@
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Link} from '@gtibrett/mui-additions';
 import {Grid, Hidden, IconButton, Menu, MenuItem, SxProps, useTheme} from '@mui/material';
 import {MouseEvent, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router';
-import Link from '../components/Link';
-import {useNavLinks} from './Routes';
+import useRoutes from './useRoutes';
 
 export default function Navigation() {
 	const {pathname}              = useLocation();
@@ -12,7 +12,7 @@ export default function Navigation() {
 	const theme                   = useTheme();
 	const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 	const open                    = Boolean(anchorEl);
-	const navLinks                = useNavLinks().filter(l => !!l.label);
+	const routes                  = useRoutes().filter(l => !!l.label);
 	
 	const navLinkSx: SxProps = {
 		textDecoration:                         'none',
@@ -40,11 +40,11 @@ export default function Navigation() {
 	
 	return <>
 		<Hidden mdDown>
-			{navLinks.map(({path, rootPath, label}, i) => {
-					const isActive = path === pathname || [path, rootPath].filter(p => p && Number(p?.length) > 1 && pathname.startsWith(p)).length > 0;
+			{routes.map(({path, label}, i) => {
+					const isActive = path === pathname || [path].filter(p => p && Number(p?.length) > 1 && pathname.startsWith(p)).length > 0;
 					return (
 						<Grid item key={i}>
-							<Link color="inherit" sx={navLinkSx} className={isActive ? 'active' : ''} to={path}>{label}</Link>
+							<Link color="inherit" className={isActive ? 'active' : ''} sx={navLinkSx} to={path}>{label}</Link>
 						</Grid>
 					);
 				}
@@ -72,7 +72,7 @@ export default function Navigation() {
 							'aria-labelledby': 'hamburger-button'
 						}}
 					>
-						{navLinks.map(({path, label}) => (
+						{routes.map(({path, label}) => (
 								<MenuItem key={String(path)} onClick={handleLink(String(path))}>{label}</MenuItem>
 							)
 						)}
